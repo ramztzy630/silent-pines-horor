@@ -1,1 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>SILENT PINES // TAPE_04</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css" />
 
+  <!-- Import Map untuk Three.js -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- Efek Layar Camcorder VHS -->
+  <div class="crt-overlay"></div>
+  <div class="vignette"></div>
+
+  <!-- Canvas 3D -->
+  <canvas id="game-canvas"></canvas>
+
+  <!-- TAMPILAN LOBBY AWAL -->
+  <section id="lobby-screen">
+    <div class="cam-frame">
+      <div class="cam-top">
+        <div class="rec-status">
+          <span class="rec-dot"></span>
+          <span>PLAY // VHS-HQ</span>
+        </div>
+        <div class="tape-id">TAPE_04 : BLACKWOOD FOREST</div>
+      </div>
+
+      <div class="lobby-main">
+        <p class="classification">CLASSIFIED EVIDENCE // DEPT. OF FORESTRY</p>
+        <h1 class="glitch-title">SILENT PINES</h1>
+        <p class="subtitle">RECOVERED CAMCORDER FOOTAGE — 02:14 AM</p>
+
+        <div class="briefing-box">
+          <p>> LOKASI: SEKTOR UTARA HUTAN PINUS</p>
+          <p>> OBJEKTIF: TEMUKAN JALAN KELUAR & HINDARI ENTITAS</p>
+          <p>> PERINGATAN: MATIKAN SENTER JIKA MENDENGAR BISIKAN DEKAT</p>
+        </div>
+
+        <button id="btn-start" class="brutal-btn">
+          [ MULAI REKAMAN // INSERT TAPE ]
+        </button>
+      </div>
+
+      <div class="cam-bottom">
+        <span>SP MODE</span>
+        <span id="lobby-timecode">TC 00:00:00:00</span>
+        <span>AUDIO: STEREO SYNTH</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAMPILAN HUD DALAM GAME -->
+  <section id="hud-screen" class="hidden">
+    <div class="hud-top">
+      <div class="hud-left">
+        <div class="rec-status">
+          <span class="rec-dot"></span>
+          <span>REC</span>
+        </div>
+        <div id="hud-timecode" class="timecode">02:14:00:00</div>
+      </div>
+
+      <div class="hud-right">
+        <div class="status-item">
+          <span>FLASHLIGHT:</span>
+          <span id="light-state" class="state-on">ON</span>
+        </div>
+        <div class="status-item">
+          <span>STANCE:</span>
+          <span id="stance-state">STAND</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="crosshair">+</div>
+
+    <!-- KONTROL LAYAR SENTUH & INTERAKSI -->
+    <div class="controls-container">
+      <!-- Kiri: Virtual Joystick -->
+      <div id="joystick-zone" class="joystick-zone">
+        <div id="joystick-base" class="joystick-base">
+          <div id="joystick-stick" class="joystick-stick"></div>
+        </div>
+        <span class="zone-label">MOVE</span>
+      </div>
+
+      <!-- Kanan: Area Geser Kamera -->
+      <div id="look-zone" class="look-zone">
+        <span class="zone-label">SWIPE TO LOOK</span>
+      </div>
+
+      <!-- Tombol Aksi Kanan Bawah -->
+      <div class="action-buttons">
+        <button id="btn-flashlight" class="tactical-btn active">
+          LIGHT [F]
+        </button>
+        <button id="btn-crouch" class="tactical-btn">
+          CROUCH [C]
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
